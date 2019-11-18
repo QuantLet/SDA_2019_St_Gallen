@@ -1,5 +1,5 @@
 
-Name of Quantlet: 'SDA_2019_Machine_Learning_Asset_Allocation'
+Name of Quantlet: 'SDA_2019_Machine_Learning_Asset_Allocation_RHP'
 
 Published in: 'Statistical programming language Python - Student Project on "Machine Learning Asset Allocation"'
 
