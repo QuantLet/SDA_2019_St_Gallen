@@ -1,7 +1,7 @@
 
 Name of Quantlet: 'SDA_2019_Machine_Learning_Asset_Allocation'
 
-Published in: 'Statistical programming language Python - Student Project on ''Machine Learning Asset Allocation''
+Published in: 'Statistical programming language Python - Student Project on "Machine Learning Asset Allocation"'
 
 Description: 'Implementation of three different portfolio optimisation methods. The classical Markowitz Minimum Variance technique is compared to the Inverse Variance Portfolio and a new approach called Hierarchical Risk Parity (HRP). HRP combines graph theory and machine learning techniques to determine the optimal allocation to assets based on the information contained in the covariance matrix. Strategies are applied to Crypto Currency Assets and Stocks and evaluated on risk/return profile.'
 
