@@ -1,0 +1,18 @@
+
+Name of Quantlet: 'SDA_2019_St_Gallen_RDD_political_support'
+
+Published in: 'MANDATORY!'
+
+Description: 'Introduces the reader to regression discontinuity design, ”RDD”, by means of replicating ”Government Transfers and Political Support” by Manacorda, Miguel, Vigorito (2009). RDD is an econometric technique to establish causal effects based on the idea that institutional cut off criteria can be seen as arbitrarily, and hence near randomly, imposed on subjects in an area close to the predefined cut off criteria.'
+
+Keywords: 'Regression discontinuity design, causal inference, econometrics, government transfers, political support'
+
+Author: 'Filip Waldemar Mellgren, filip.mellgren@gmail.com.'
+
+Submitted:   '25 November 2019, Filip Mellgren'
+
+Datafile: 'optional: for your data sets - delete if not used'
+
+Input: 'Survey information on voting intention, eligibility of a government program and more'
+
+Output:  'main.html'
