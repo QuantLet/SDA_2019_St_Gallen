@@ -1,0 +1,9 @@
+Name of Quantlet: Data_visualization
+
+Published in: Smart Data Analytics / University of St. Gallen (HSG)
+
+Description: This Quantlet takes the output of the web scraping and forecasting Quantlets to visualize the results as a WordCloud and a scatterplot for the prediction vs realized return and volatility of the stock in the test sample.
+
+Keywords: Data visualization, WordCloud, scatterplot, automatic sentiment analysis, stock-market news
+
+Author: Oliver Kostorz
