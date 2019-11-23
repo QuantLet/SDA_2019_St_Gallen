@@ -4,12 +4,7 @@ Published in: Smart Data Analytics / University of St. Gallen (HSG)
 
 Description: This Quantlet calculates a test sample to validate the predictions made with data from the web scraping Quantlet.
 
-Technical requierments of article:
--Article must be published on finanzen.net (not linked from another page)
--Article must be published within 60 days
-  -Free source of frequent stock data (5 min interval) provides only the last 60 days
--Article must be at least 3 days old to gather enough stock data for training
--Article must be published before, on and after trading days to reliably link stock movement to article
+Technical requirements of article: Article must be published on finanzen.net (not linked from another page); Article must be published within 60 days since free source of frequent stock data (5 min interval) provides only the last 60 days; Article must be at least 3 days old to gather enough stock data for training; Article must be published before, on and after trading days to reliably link stock movement to article
 
 Keywords: Forecasting, Valuation, web scraping, automatic sentiment analysis, stock-market news
 
