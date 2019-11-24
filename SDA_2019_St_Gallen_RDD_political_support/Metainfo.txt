@@ -1,4 +1,3 @@
-
 Name of Quantlet: 'SDA_2019_St_Gallen_RDD_political_support'
 
 Published in: 'MANDATORY!'
@@ -9,10 +8,10 @@ Keywords: 'Regression discontinuity design, causal inference, econometrics, gove
 
 Author: 'Filip Waldemar Mellgren, filip.mellgren@gmail.com.'
 
-Submitted:   '25 November 2019, Filip Mellgren'
+Submitted:   '24 November 2019, Filip Mellgren'
 
-Datafile: 'optional: for your data sets - delete if not used'
+Datafile: 'reg_panes.dta, mccrary.dta, chic_aug_07.csv'
 
 Input: 'Survey information on voting intention, eligibility of a government program and more'
 
-Output:  'main.html'
+Output:  'SDA_2019_St_Gallen_RDD_political_support.html'
