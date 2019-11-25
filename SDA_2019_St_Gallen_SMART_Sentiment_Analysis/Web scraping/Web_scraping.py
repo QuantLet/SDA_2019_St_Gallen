@@ -2,7 +2,7 @@
 This file scrapes the news website finanzen.net and gathers specified articles,
 analysis the words used and links them to the stocks return and volatility, following the publication of the article.
 
-Stock data is retreived through the Yahoo Finance API.
+Stock data is retrieved through the Yahoo Finance API.
 
 Code was written by Oliver Kostorz during November 2019.
 """
