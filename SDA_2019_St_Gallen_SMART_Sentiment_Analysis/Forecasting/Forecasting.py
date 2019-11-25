@@ -1,3 +1,13 @@
+'''
+This file scrapes the news website finanzen.net and gathers specified articles,
+analysis the words used and predicts the stock's return and volatility,
+based on the library  build under the webs craping part of the project.
+The actual return and volatility realizations are gathered through the Yahoo Finance API to back test the predictions made.
+
+Code was written by Oliver Kostorz during November 2019.
+'''
+
+
 #Import packages
 from bs4 import BeautifulSoup
 import requests
