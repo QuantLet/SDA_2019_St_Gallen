@@ -2,8 +2,9 @@
 Predict the probability of default crossing sentiment analysis with accounting data on publicly listed non-financial companies in the U.S.A between 2002 and 2018 using machine learning algorithms. 
 
 The project involved the following steps:
-- Data preprocessing and describing
+- Preprocessing the data
 - Performing textual analysis
+- Describing the data
 - Identifying outliers and the 44 main features, applying oversampling techniques
 - Running the machine learning models
 
