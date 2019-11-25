@@ -1,13 +1,19 @@
-Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis'
+# Predicting the probability of corporate default using financial data and sentiment from annual reports
+Predict the probability of default crossing sentiment analysis with accounting data on publicly listed non-financial companies in the U.S.A between 2002 and 2018 using machine learning algorithms. 
 
-Description: 'Predict the probability of default for US listed non-financial companies by machine learning algorithms using financial data and extracted sentiment from annual reports.'  
+The project involved the following steps:
+- Data preprocessing and describing
+- Performing textual analysis
+- Identifying outliers and 44 main features, applying oversampling techniques
+- Running machine learning models
 
-Keywords: 'textual analysis, sentiment extraction, machine learning, oversampling, outlier detection'
+## Data preporcessing and describing
 
-Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
 
-Submitted:   '25 November 2019'
+### Performing textual analysis
 
-Input: 'WRDS dataset, textual analysis polarity scores, macroeconomic indicators from WB database '
 
-Output:  'Probability of default'
+### Identifying outliers and 44 main features, applying oversampling techniques
+
+
+#### Running machine learning models
