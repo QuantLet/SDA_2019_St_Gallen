@@ -3,6 +3,10 @@
 Created on Fri Nov  1 13:56:39 2019
 
 @author: Fabian Karst
+Input:  bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv (from Preprocessing_WIDS.py)  
+        WIDS Corporate Legal Bankruptcy data as .sas7bat
+Output: lbl_data_processed.csv
+Purpose: Identify the companies which disappeared during the observation period (label: disap) and identify which of them went bankrupt by Chapter 7 or 11 (label: bnkrpt)
 """
 
 import os
@@ -73,12 +77,5 @@ for i in range(0, len(df_sas)):
         df_wids[3].loc[(df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"])) & (df_wids[3]["disap"] == True), "bnkrpt"] = True
         matched += 1
 
-
-df_wids[3].loc[(df_wids[3]["disap"] == False) & (df_wids[3]["bnkrpt"] == True)]
-df_wids[3]["cik"].nunique()
-sum((df_wids[3]["disap"] == True))
-
-df_wids[0]["cik"].nunique()
-df_wids[3]["cik"].nunique()
-
+#save the data
 df_wids[3].to_csv("preprocesseddata//ratio//lbl_data_processed.csv")
