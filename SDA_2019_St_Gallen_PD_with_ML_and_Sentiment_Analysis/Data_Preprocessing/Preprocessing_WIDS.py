@@ -3,6 +3,9 @@
 Created on Thu Oct 31 18:27:28 2019
 
 @author: Fabian Karst
+Input: data from WIDS as .csv
+Output: bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv
+Purpose: Select the relevant data (year: 2000 - 2019, company country: US, company type: Nonfinacial service provider), transform all the data into ratios and further drop the columns which contain NA for more than 99% of the rows NA
 """
 
 import os
