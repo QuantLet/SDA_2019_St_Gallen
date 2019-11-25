@@ -8,11 +8,37 @@ The project involved the following steps:
 - Identifying outliers and the 44 main features, applying oversampling techniques
 - Running the machine learning models
 
-## Data preporcessing and describing
+The following chart provides a summary of the working process: 
+
+![](Descriptive_Statistics/macro.png)
+
+## Preprocessing the data
 
 
+23 financial ratios describing profitability, leverage, liquidity and activity were created. The ratios were calculated based on the accounting information from balance sheet, income statement and cash flow statement.
+
+Macroeconomic indicators were collected from World Bank database. 
+
+```
+data_date = (datetime.datetime(2001, 1, 1), datetime.datetime(2018, 1, 1))
+indicators = {"SL.UEM.TOTL.NE.ZS": "unemp", 
+                   "NY.GDP.MKTP.KD.ZG" : "gdp_growth",
+                  "FP.CPI.TOTL.ZG": "cpi", 
+                  "GFDD.SM.01": "stockp_volatility", 
+                  "BX.KLT.DINV.CD.WD": "fdi"}
+
+usdata= wbdata.get_dataframe(indicators, country="USA", data_date=data_date)
+usdata = usdata.reset_index()
+usdata = usdata.rename(columns = {'index':'fyear'} )
+usdata = usdata.astype(float)
+```
 
 ## Performing textual analysis
+
+## Describing the data
+
+The following graphs provide a description of macroeconomic indicators' dymanics and of the distribution of polarity scores extracted from companies' annual reports as a result of textual analysis. 
+
 
 
 ## Identifying outliers and 44 main features, applying oversampling techniques
