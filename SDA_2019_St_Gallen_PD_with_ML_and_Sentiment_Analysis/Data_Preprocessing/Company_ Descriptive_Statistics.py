@@ -3,6 +3,9 @@
 Created on Fri Nov  1 11:04:46 2019
 
 @author: Fabian Karst
+Input: bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv, lbl_data_processed.csv (from Preprocessing_WIDS.py and Labelgeneration_WIDS.py)
+Output: Prints descriptive statistics and save diagrams showing the data.
+Purpose: Create summary statistics and diagrams to get better understanding for the data.
 """
 import os
 import pandas as pd 
