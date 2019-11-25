@@ -81,34 +81,4 @@ sum((df_wids[3]["disap"] == True))
 df_wids[0]["cik"].nunique()
 df_wids[3]["cik"].nunique()
 
-'''
-#transform bankruptcy label data into sudataset for bnkrpt label
-matched = 0
-unmatched = 0
-for i in range(0, len(df_sas)):
-    if not (df_wids[3][(df_wids[3]["fyear"] == (df_sas.iloc[i, :]["fyear"]+1)) & (df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"]))]).empty:
-        df_wids[3].loc[(df_wids[3]["fyear"] == (df_sas.iloc[i, :]["fyear"]+1)) & (df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"])), "bnkrpt"] = True
-        matched += 1
-    elif not (df_wids[3][(df_wids[3]["fyear"] == (df_sas.iloc[i, :]["fyear"])) & (df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"]))]).empty:
-        df_wids[3].loc[(df_wids[3]["fyear"] == (df_sas.iloc[i, :]["fyear"])) & (df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"])), "bnkrpt"] = True
-        matched += 1
-    elif not (df_wids[3][(df_wids[3]["fyear"] == (df_sas.iloc[i, :]["fyear"]-1)) & (df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"]))]).empty:
-        df_wids[3].loc[(df_wids[3]["fyear"] == (df_sas.iloc[i, :]["fyear"]-1)) & (df_wids[3]["cik"] == float(df_sas.iloc[i, :]["COMPANY_FKEY"])), "bnkrpt"] = True
-        matched += 1
-    else:
-        unmatched += 1
-'''
-
 df_wids[3].to_csv("preprocesseddata//ratio//lbl_data_processed.csv")
-
-
-#df_wids[3][(df_wids[3]["disap"] == True) & (df_wids[3]["bnkrpt"] == True)].to_csv("data_with_labels2.csv")
-
-#df_reuters_1 = pd.read_csv(r"labeldata\Dead_companies_USA.csv", low_memory=False, sep=";", encoding = "ISO-8859-1")
-#df_reuters_2 = pd.read_csv(r"labeldata\Electronic_and_equipment_default.csv", low_memory=False, sep=";", encoding = "ISO-8859-1")
-#df_reuters_3 = pd.read_csv(r"labeldata\General_to_mining_default.csv", low_memory=False, sep=";", encoding = "ISO-8859-1")
-#df_reuters_4 = pd.read_csv(r"labeldata\Oil_to_REIT_default.csv", low_memory=False, sep=";", encoding = "ISO-8859-1")
-#df_reuters_5 = pd.read_csv(r"labeldata\Software_to_tabacco_default.csv", low_memory=False, sep=";", encoding = "ISO-8859-1")
-#df_reuters_6 = pd.read_csv(r"labeldata\Travel_to_unclassified_default.csv", low_memory=False, sep=";", encoding = "ISO-8859-1")
-#df_reuters = pd.concat([df_reuters_1, df_reuters_2, df_reuters_3, df_reuters_4, df_reuters_5, df_reuters_6])
-
