@@ -1,0 +1,13 @@
+ame of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Textual_Analysis'
+
+Description: 'Collect textual data from companies' annual reports, perform sentiment analysis, report polarity scores.'
+            
+Keywords: 'textual analysis, sentiment exptraction, polarity scores, stopwords, annual reports '
+
+Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
+
+Submitted:   '25 November 2019'
+
+Input: 'SEC fillings from the EDGAR webpage'
+
+Output:  'filings_data_processed.csv'
