@@ -3,6 +3,10 @@
 Created on Thu Nov 14 06:44:13 2019
 
 @author: Fabian Karst
+Input:  all fillings.csvs (Collecting_Preprocessing_Analyzing_10K_files.py)
+        bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv, lbl_data_processed.csv (Preprocessing_WIDS.py)
+Output: filings_data_processed.csv (csv containing the filings with the same structure as all other data.
+Purpose: Transform the filings data into a format which can be used for further processing
 """
 
 import os
