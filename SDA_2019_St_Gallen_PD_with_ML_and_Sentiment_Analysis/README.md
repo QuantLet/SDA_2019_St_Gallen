@@ -37,10 +37,14 @@ usdata = usdata.astype(float)
 
 ## Describing the data
 
-The following graphs provide a description of macroeconomic indicators' dymanics and of the distribution of polarity scores extracted from companies' annual reports as a result of textual analysis. 
+The following graphs provide
+a description of macroeconomic indicators' dymanics a
 
-<img src="Descriptive_Statistics/macro.png">
-< img src="Descriptive_Statistics/fdi.png" width="50" >
+<img src="Descriptive_Statistics/macro.png" width="400" > <img src="Descriptive_Statistics/fdi.png" width="400" >
+
+and of the distribution of polarity scores extracted from companies' annual reports as a result of textual analysis. 
+
+<img src="Descriptive_Statistics/polarLM.png" width="400" > <img src="Descriptive_Statistics/polarB.png" width="400" >
 
 
 ## Identifying outliers and 44 main features, applying oversampling techniques
