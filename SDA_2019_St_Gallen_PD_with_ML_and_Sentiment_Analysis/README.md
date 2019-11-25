@@ -38,7 +38,7 @@ usdata = usdata.astype(float)
 ## Describing the data
 
 The following graphs provide
-a description of macroeconomic indicators' dymanics
+a description of macroeconomic indicators' dynamics
 
 <img src="Descriptive_Statistics/macro.png" width="400" > <img src="Descriptive_Statistics/fdi.png" width="400" >
 
