@@ -1,3 +1,12 @@
+"""
+This file scrapes the news website finanzen.net and gathers specified articles,
+analysis the words used and links them to the stocks return and volatility, following the publication of the article.
+
+Stock data is retreived through the Yahoo Finance API.
+
+Code was written by Oliver Kostorz during November 2019.
+"""
+
 #Import packages
 from bs4 import BeautifulSoup
 import requests
@@ -14,12 +23,14 @@ import pickle
 import os
 import json
 
+#Set working device
 try:
     wd = os.path.join(os.getcwd(), 'SDA-Oliver-Kostorz-SMART-Sentiment-Analysis-master')
 except:
     print('Please specify path to working directory manually.')
     
 ###Functions
+
 #Clean html tags in string
 def remove_html_tags(text):
     clean = re.compile('<.*?>')
@@ -39,7 +50,9 @@ def roundtime(time):
         time += dt.timedelta(minutes = -1)
     return time
 
+
 ###Data mining
+
 #List containing relevant URLs for news-sample
 with open(os.path.join(wd, 'links.txt'), "rb") as fp:   # Unpickling
     url_list = pickle.load(fp)
@@ -70,23 +83,27 @@ for link in url_list:
     website = requests.get(link) 
     news = website.content 
     soup = BeautifulSoup(news, 'lxml')
+    
     ###Data processing
     #Finanzen.net specific code to extract news' body
     container = soup.find('div', class_='teaser teaser-xs color-news')
     parts_html = list()
     for para in container.find_all('p', recursive=False):
         parts_html.append(para)
+        
     #General text preparation code
     parts = remove_html_tags(str(parts_html))
     expression = "[^a-zA-Z äüöß]" 
     text_raw = re.sub(expression, '', str(parts))
     text_raw_lower = text_raw.lower()
     word_tokens = text_raw_lower.split()
+    
     #Deleting stopwords from text is not necessary with SMART method but included for educational purpose
     filtered_sentence = list()
     for w in word_tokens: 
         if w not in stop_words: 
             filtered_sentence.append(w)
+            
     #Finanzen.net specific code to extract stock's name
     name_section = soup.find('div', class_='chart-block relative')
     name_parts_html = list()
@@ -94,10 +111,12 @@ for link in url_list:
         name_parts_html.append(para)
     name_parts = remove_html_tags(str(name_parts_html))
     name = name_parts[1:len(name_parts)-18]
+    
     #Finanzen.net specific code to extract time of news
     date_section = soup.find(class_="pull-left mright-20")
     date = str(date_section)[33:49]
     date_time = datetime.datetime.strptime(date, '%d.%m.%Y %H:%M')
+    
     #Gathers stock's return history
     try: #keeps code running if news date is faulty
         date = date_time.strftime('%Y-%m-%d')
@@ -107,12 +126,14 @@ for link in url_list:
         symbol = getCompany(name).get('symbol')
         stock_data = yfinance.Ticker(symbol)
         return_t = stock_data.history(start = t_start, end = t_end, interval = "5m")
+        
         #Calculate return and volatility
         return_24 = 100*((((return_t.loc[(rounded_time).strftime('%Y-%m-%d %H:%M:%S') : t_end])["Open"].iloc[77])-
                           ((return_t.loc[t_start : (rounded_time).strftime('%Y-%m-%d %H:%M:%S')])["Open"].iloc[-1]))/((return_t.loc[t_start : (rounded_time).strftime('%Y-%m-%d %H:%M:%S')])["Open"].iloc[-1]))
         var_till_t = (numpy.var((return_t.loc[t_start : (rounded_time).strftime('%Y-%m-%d %H:%M:%S')])["Open"])) # variance until news
         var_after_t = (numpy.var((return_t.loc[(rounded_time).strftime('%Y-%m-%d %H:%M:%S') : t_end])["Open"])) # variance after news
         volatility_24 = math.sqrt(var_after_t)/math.sqrt(var_till_t)
+        
         #Save in dict
         for word in filtered_sentence:
             if word in data.values:
