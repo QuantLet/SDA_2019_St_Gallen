@@ -10,7 +10,7 @@ The project involved the following steps:
 
 The following chart provides a summary of the working process: 
 
-![](Descriptive_Statistics/macro.png)
+![](Workflow.png)
 
 ## Preprocessing the data
 
