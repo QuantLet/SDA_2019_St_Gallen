@@ -11,6 +11,6 @@ Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
 
 Submitted: '25 November 2019'
 
-Input: 'WIDS dataset'
+Input: 'WRDS dataset'
 
 Output:  'bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv, lbl_data_processed.csv, macrodata_simple series.csv, ratios.csv, 20191114_macro_ind.csv, ByYear_extd.png, ByState_extd.png, BySector_extd.png' 
