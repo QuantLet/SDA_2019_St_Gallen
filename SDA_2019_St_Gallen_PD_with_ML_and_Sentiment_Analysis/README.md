@@ -8,6 +8,6 @@ Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
 
 Submitted:   '25 November 2019'
 
-Input: 'WIDS dataset, textual analysis polarity scores, macroeconomic indicators from WB database '
+Input: 'WRDS dataset, textual analysis polarity scores, macroeconomic indicators from WB database '
 
 Output:  'Probability of default'
