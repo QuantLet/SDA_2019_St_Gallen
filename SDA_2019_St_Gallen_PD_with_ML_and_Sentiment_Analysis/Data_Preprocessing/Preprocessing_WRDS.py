@@ -3,7 +3,7 @@
 Created on Thu Oct 31 18:27:28 2019
 
 @author: Fabian Karst
-Input: data from WIDS as .csv
+Input: data from WRDS as .csv
 Output: bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv
 Purpose: Select the relevant data (year: 2000 - 2019, company country: US, company type: Nonfinacial service provider), transform all the data into ratios and further drop the columns which contain NA for more than 99% of the rows NA
 """
@@ -12,7 +12,7 @@ import os
 import pandas as pd
 
 # Set working directory
-os.chdir('D:\Programming\Python\SmartDataAnalytics\Project\Preprocessing_WIDS')
+os.chdir('D:\Programming\Python\SmartDataAnalytics\Project\Preprocessing_WRDS')
 
 #import dataset
 df = [pd.read_csv("Balance_Sheet.csv", low_memory=False), pd.read_csv("Cash_Flow.csv", low_memory=False), pd.read_csv("Income_Statement.csv", low_memory=False)]    
