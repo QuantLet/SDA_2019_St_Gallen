@@ -3,6 +3,11 @@
 Created on Wed Nov 20 21:37:03 2019
 
 @author: Jasmine
+
+Input: ratios.csv, macrodata_simple series.csv, filings_data_processed.csv
+Output: sumstat_ratios.xlsx, macro.png, fdi.png, polarLM.png, polarB.png
+Purpose: Create summary statistics for financial ratios, make area-chart for FDI and lineplots for other macroeconomic indicators, boxplots for polarity scores
+
 """
 
 import os
@@ -23,7 +28,7 @@ sumstat = pd.DataFrame(ratios.describe())
 sumstat.to_excel('sumstat_ratios.xlsx')
 
 # Macro indicators graphs
-macro = pd.read_csv("macrodata.csv")
+macro = pd.read_csv("macrodata_simple series.csv")
 macro['fyear'] = macro['fyear'].astype('int64')
 
 #Plot macro variables except FDI
