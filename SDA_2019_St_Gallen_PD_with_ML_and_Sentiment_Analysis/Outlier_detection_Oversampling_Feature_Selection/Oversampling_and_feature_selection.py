@@ -3,6 +3,13 @@
 Created on Thu Nov 14 10:15:07 2019
 
 @author: Fabian Karst
+Input:  bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv (Preprocessing_WIDS.py)
+        ratios.csv ()
+        makro.csv (Macroindicators_ratios_polarityscores_descp.py)
+        lbl_data_processed.csv (Labelgeneration_WIDS.py)
+        filings_data_processed.csv (Preprocessing_Textualanalysis.py)
+Output: different train datasets with various oversampling methods applied, the test dataset (as csv)
+Purpose: Select the 44 most important features of the dataset and apply oversampling to the training dataset.
 """
 
 
@@ -148,16 +155,19 @@ dfs = [X_all_train, X_WIDS_w_ratios_train, X_WIDS_wo_ratios_train]
 dfs_names = ["X_all_train", "X_WIDS_w_ratios_train", "X_WIDS_wo_ratios_train"]
 angle = 45
 
+#plot the number of defaults vs non-defaults in the training dataset
 sns.countplot(y_train)
 plt.title('Train: No Default (0) vs. Default (1)')
 plt.savefig("train_nodefault_vs_default.png")
 plt.show()
 
+#plot the number of defaults vs non-defaults in the test dataset
 sns.countplot(y_test)
 plt.title('Test: No Default (0) vs. Default (1)')
 plt.savefig("test_nodefault_vs_default.png")
 plt.show()
 
+#Run a loop to Oversample different format of the data
 for i in range(len(dfs)):
     pca_transformer_3D = create_3Dplot(dfs[i], y_train, angle, "{}_3D_without_Oversampling.png".format(dfs_names[i]))
     pca_transformer_2D = create_2Dplot(dfs[i], y_train, "{}_2D_without_Oversampling.png".format(dfs_names[i]))
