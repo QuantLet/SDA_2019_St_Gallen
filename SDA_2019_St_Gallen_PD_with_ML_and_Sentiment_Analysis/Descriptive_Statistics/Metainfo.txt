@@ -1,4 +1,4 @@
-Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Data_Preprocessing'
+Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Descriptive_Statistics'
 
 Description: 'Create summary statistics for financial ratios and make visualizations for macroeconomic indicators and polarity scores.'
             
