@@ -39,7 +39,7 @@ usdata = usdata.astype(float)
 
 The following graphs provide a description of macroeconomic indicators' dymanics and of the distribution of polarity scores extracted from companies' annual reports as a result of textual analysis. 
 
-< img src="Descriptive_Statistics/macro.png" width="50" >
+<img src="Descriptive_Statistics/macro.png">
 < img src="Descriptive_Statistics/fdi.png" width="50" >
 
 
