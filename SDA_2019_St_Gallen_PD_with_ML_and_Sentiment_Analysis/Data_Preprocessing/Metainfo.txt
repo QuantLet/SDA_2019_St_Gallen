@@ -1,0 +1,16 @@
+Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Data_Preprocessing'
+
+Description: 'Preprocess raw data from WIDS, create separate .csv files for balance sheet, income statement and cash flow reports, 
+              Identify and match the companies that went bankrupt or disappeared, create labels for each type, make visualizations.
+              Calculate financial ratios and save into a separate .csv file.
+              Collect data of macroeconomic indicators from World Bank database, map into companies panel.'
+            
+Keywords: 'data collection, data cleaning, preprocessing, financial ratios, macroeconomic indicators'
+
+Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
+
+Submitted: '25 November 2019'
+
+Input: 'WIDS dataset'
+
+Output:  'bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv, lbl_data_processed.csv, macrodata_simple series.csv, ratios.csv, 20191114_macro_ind.csv, ByYear_extd.png, ByState_extd.png, BySector_extd.png' 
