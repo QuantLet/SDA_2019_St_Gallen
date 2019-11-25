@@ -3,6 +3,8 @@
 Created on Thu Nov 21 16:54:51 2019
 
 @author: Jasmine
+
+Description: Outlier detection using Isolation Forest (the percentage of outliers was set to 10%). Save new cleaned datasets with inliers.
 """
 
 import os
