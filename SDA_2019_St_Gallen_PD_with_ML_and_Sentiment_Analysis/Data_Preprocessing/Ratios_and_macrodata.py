@@ -23,6 +23,7 @@ usdata= wbdata.get_dataframe(indicators, country="USA", data_date=data_date)
 usdata = usdata.reset_index()
 usdata = usdata.rename(columns = {'index':'fyear'} )
 usdata = usdata.astype(float)
+usdata.to_csv('macrodata_simple series.csv')
 
 #calculate finacial ratios for companies
 # NB! there are companies with 0 sales value, thus some indicators cannot be calculated
