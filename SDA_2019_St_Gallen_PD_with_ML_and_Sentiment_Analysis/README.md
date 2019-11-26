@@ -46,6 +46,9 @@ and of the distribution of polarity scores extracted from companies' annual repo
 
 <img src="Descriptive_Statistics/polarLM.png" width="400" > <img src="Descriptive_Statistics/polarB.png" width="400" >
 
+Overview of defaults by cathegory.
+
+<img src="<Data_Preprocessing/BySector_extd.png" width="267" ><img src="<Data_Preprocessing/ByState_extd.png" width="266" ><img src="<Data_Preprocessing/ByYear_extd.png" width="267" >
 
 ## Identifying outliers and 44 main features, applying oversampling techniques
 ### Feature selection
