@@ -129,3 +129,86 @@ for i in range(len(dfs)):
 
 
 ## Running the machine learning models
+To find the best machine learning algorithm 5-fold cross-validation was employed to validate the stability of the model. As success measure the F1 Score was choosen, as it balances precision (how many of the predicted positive are actual positive) and recall (how many of the actual positives are labelled as true positives.
+The following machine learning algorithms were tested:
+- Logistic Regression (https://towardsdatascience.com/an-introduction-to-logistic-regression-8136ad65da2e)
+- Random Forest (https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
+- Adaptive Boosting (https://towardsdatascience.com/boosting-algorithm-adaboost-b6737a9ee60c)
+- Support Vector Machines (https://towardsdatascience.com/the-complete-guide-to-support-vector-machine-svm-f1a820d8af0b)
+- Naïve Bayes (https://towardsdatascience.com/naive-bayes-explained-9d2b96f4a9c0)
+- K-Nearest Neighbour (https://towardsdatascience.com/knn-k-nearest-neighbors-1-a4707b24bd1d)
+
+```
+#Define machine learning function with parameters
+LogReg = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', LogisticRegression(solver='lbfgs', random_state=0))])
+LogReg_para = {}
+RandF = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', RandomForestClassifier(random_state=0))])
+RandF_para = {'classification__n_estimators':[20, 50, 100, 200, 400, 800], 'classification__max_depth':[2, 5, 10, 20]}
+AdaBoost = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', AdaBoostClassifier(random_state=0))])
+AdaBoost_para = {'classification__n_estimators':[20, 50, 100, 200, 400, 800]}
+SVM = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', SVC(decision_function_shape='ovr', degree=3, gamma='auto'))]) 
+SVM_para = {'classification__C':[0.01, 0.1, 1, 10], 'classification__kernel':('linear', 'rbf')}
+NaivBay = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', GaussianNB())])
+NaivBay_para = {}
+Knn = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski'))])
+Knn_para = {'classification__n_neighbors': (10, 15, 25)}
+
+
+score={'AUC':'roc_auc', 
+           'RECALL':'recall',
+           'PRECISION':'precision',
+           'F1':'f1’}
+
+clasifier_names = ["Logistic Regression", "Random Forest", "Adaptive Boosting", "Support Vector Machines", "Naive Bayes", "K Nearest Neighbours"]
+classifiers = [LogReg, RandF, AdaBoost, SVM, NaivBay, Knn]
+parameters = [LogReg_para, RandF_para, AdaBoost_para, SVM_para, NaivBay_para, Knn_para]
+ 
+results = list()
+ 
+#run the gridsearch to find the best algorithm
+for i in range(len(classifiers)):
+    clf = GridSearchCV(classifiers[i], parameters[i], cv=5, scoring=score, n_jobs=-1, refit=False, return_train_score=True)
+    clf.fit(X_train, y_train)
+    results.append([clasifier_names[i], clf.cv_results_])
+    print(clasifier_names[i])
+    print(clf.cv_results_)
+```
+
+## Train and export the final machine learning model
+The best performing algorithm determined by gridsearch will be trained on the complete training dataset and evaluated on the unused test dataset to get the final performance evaluation.
+```
+#train model
+clf = AdaBoostClassifier(random_state=randomstate, n_estimators=800)
+clf.fit(X_train, y_train)
+
+#test model
+y_pred = clf.predict(X_test)
+
+#calculate scores
+result = {}
+result["acc"] = accuracy_score(y_test, y_pred)
+result["prec"] = precision_score(y_test, y_pred)
+result["rec"] = recall_score(y_test, y_pred)
+result["f1"] = f1_score(y_test, y_pred)
+result["auc"] = auc(y_test, y_pred)
+
+#print scores
+for key in result.keys():
+    print("{}: {}".format(key, result[key]))
+
+#save classifier
+filename = 'prediction_model.sav'
+pickle.dump(clf, open(filename, 'wb'))
+```
