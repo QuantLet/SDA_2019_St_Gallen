@@ -14,7 +14,7 @@ number of positive and negative words from each 10-K file.
 
 ATTENTION: The given code below is extremely computational intensive and therefore should not be exectued diretly without
 using an appropriate machine or slicing the workload in different steps. We decided to exectute the code below year by year,
- i.e. by changing line 121 and 123 to be the same year, ony by one, and it took us approximately a week to run the 17 years
+ i.e. by changing line 93 and 95 to be the same year, ony by one, and it took us approximately a week to run the 17 years
 with a CPU of 4GB and Virtual Memory up to 150GB. Therefore, we highly discourage to exectue the code below for an entire
 timeframe on only one machine and advice to cut the process by year to be able to run it on several machines 
 to be efficient. 
@@ -36,7 +36,7 @@ import nltk.data
 from nltk.tokenize import RegexpTokenizer, sent_tokenize
 
 
-# In[5]:
+
 #set working directory 
 PATH = r"YOUR PATH HERE"
 os.chdir(PATH)
@@ -51,7 +51,7 @@ def url_to_text(url):
     return text
 
 
-
+#Function to clean the dataset
 def clean_text_round2(text):
     # convert to lower case
     text = text.lower()
@@ -89,7 +89,7 @@ def clean_text_round2(text):
     return text
 
 
-# In[9]
+#Initiate the years
 start_year = 2002
 quarter = 4
 end_year = 2018
@@ -192,7 +192,7 @@ texts = [url_to_text(url) for url in urls]
 saved_texts = pd.DataFrame(texts)
 saved_texts.to_csv('texts.csv')
 
-# In[]:
+
 
 stopWordsFile = PATH + r'\Dictionaries\StopWords_Generic.txt'
 #Loading stop words dictionary for removing stop words
@@ -203,7 +203,7 @@ stopWordList[-1:] = []
 
 
 
-# In[ ]:
+
 #Tokenizeing module and filtering tokens using stop words list, removing punctuations
 def tokenizer(text):
     text = text.lower()
@@ -264,7 +264,7 @@ def polarity_score(positiveScore, negativeScore):
     return pol_score
 
 
-
+# Function to count the words
 def total_word_count(text):
     tokens = tokenizer(text)
     return len(tokens)
@@ -287,7 +287,7 @@ def average_sentence_length(text):
 
 
 
-# In[ ]:   Import the negative and positive dictionaries 
+#Import the negative and positive dictionaries 
 ##### Words from Loughran and McDonald
 # negative 
 neg_dict_LM = ""
@@ -329,7 +329,7 @@ for url in urls:
 print("ciks fetched")
 
 
-# In[ ]: Pickle the data to save them on the computer
+# Pickle the data to save them on the computer
 for idx, val in enumerate(ciks):
     with open(PATH + r"\pickle" + val+"val" + ".pkl", "wb") as f:
         if idx != len(ciks)-1:
@@ -344,11 +344,11 @@ for _, val in enumerate(ciks):
     with open(PATH + r"\pickle" + val +"val"+ ".pkl", "rb") as f:
         data[val] = pickle.load(f)
         
-
+# Change to a pd.DataFrame
 df = pd.DataFrame.from_dict(data, orient = "index")
 df1 = pd.DataFrame(df[0].apply(clean_text_round2))
     
-# In[ ]:Create the variables for the textual analysis 
+# Create the variables for the textual analysis 
 df1['word_count'] = df1.iloc[:,0].apply(total_word_count)
 df1['positive_LM'] = df1.iloc[:,0].apply(positive_word_LM)
 df1['negative_LM'] = df1.iloc[:,0].apply(negative_word_LM)
