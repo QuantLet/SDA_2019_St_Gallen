@@ -128,7 +128,7 @@ for i in range(len(dfs)):
 
 
 
-## Running the machine learning models
+## Find the most appropriate machine learning algorithm
 To find the best machine learning algorithm 5-fold cross-validation was employed to validate the stability of the model. As success measure the F1 Score was choosen, as it balances precision (how many of the predicted positive are actual positive) and recall (how many of the actual positives are labelled as true positives.
 The following machine learning algorithms were tested:
 - Logistic Regression (https://towardsdatascience.com/an-introduction-to-logistic-regression-8136ad65da2e)
