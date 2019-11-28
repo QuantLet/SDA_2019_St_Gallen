@@ -5,7 +5,7 @@ The project involved the following steps:
 - Preprocessing the data
 - Performing textual analysis
 - Describing the data
-- Identifying outliers and the 44 main features, applying oversampling techniques
+- Identifying outliers and the top 10% main features via random forest, applying oversampling techniques
 - Finding the most appropriate machine learning algorithm
 - Training and exporting the final machine learning model
 
