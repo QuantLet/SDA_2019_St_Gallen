@@ -40,7 +40,9 @@ usdata = usdata.astype(float)
 The textial analysis is done in three main parts. 
 
 First, we need to collect all the direct HTML link to the company 10-K files available on the SEC webpage database, EDGAR. (https://www.sec.gov/edgar/searchedgar/companysearch.html). 
+
 Second, we will execute some preprocessing technique using the bag-of-words approach that will enable us to keep only the raw text of the fillings ready to be analyzed. 
+
 Third, we will compute the number of positive and negative words in each file based on two different libraries, one from Loughran and McDonald (2016) and one from Bing Liu, to compute a final polarity score. 
 
 ## Describing the data
