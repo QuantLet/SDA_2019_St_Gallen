@@ -6,7 +6,8 @@ The project involved the following steps:
 - Performing textual analysis
 - Describing the data
 - Identifying outliers and the 44 main features, applying oversampling techniques
-- Running the machine learning models
+- Finding the most appropriate machine learning algorithm
+- Training and exporting the final machine learning model
 
 The following chart provides a summary of the working process: 
 
@@ -14,8 +15,9 @@ The following chart provides a summary of the working process:
 
 ## Preprocessing the data
 
+As a first step, data about companies' financial situation taken from balance sheet, income statement and cash flow statement was taken. Overall, There were 974 variables, as the data was extremely detailed. As a result of exclusion of variables that were missing for more than 99% of observations, 440 were left. 
 
-23 financial ratios describing profitability, leverage, liquidity and activity were created. The ratios were calculated based on the accounting information from balance sheet, income statement and cash flow statement.
+Afterwards, 23 financial ratios describing profitability, leverage, liquidity and activity were created. The ratios were calculated based on the accounting information from balance sheet, income statement and cash flow statement.
 
 Macroeconomic indicators were collected from World Bank database. 
 
@@ -38,17 +40,17 @@ usdata = usdata.astype(float)
 ## Describing the data
 
 The following graphs provide
-a description of macroeconomic indicators' dynamics
+a description of macroeconomic indicators' dynamics,
 
 <img src="Descriptive_Statistics/macro.png" width="400" > <img src="Descriptive_Statistics/fdi.png" width="400" >
 
-and of the distribution of polarity scores extracted from companies' annual reports as a result of textual analysis. 
+of the distribution of polarity scores extracted from companies' annual reports as a result of textual analysis,
 
 <img src="Descriptive_Statistics/polarLM.png" width="400" > <img src="Descriptive_Statistics/polarB.png" width="400" >
 
-Overview of defaults by cathegory.
+as well as an overview of defaults by category.
 
-<img src="Data_Preprocessing/BySector_extd.png" width="267" ><img src="Data_Preprocessing/ByState_extd.png" width="266" ><img src="Data_Preprocessing/ByYear_extd.png" width="267" >
+<img src="Descriptive_Statistics/BySector_extd.png" width="267" ><img src="Descriptive_Statistics/ByState_extd.png" width="266" ><img src="Descriptive_Statistics/ByYear_extd.png" width="267" >
 
 ## Identifying outliers and 44 main features, applying oversampling techniques
 ### Feature selection
