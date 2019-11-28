@@ -37,7 +37,7 @@ usdata = usdata.astype(float)
 
 ## Performing textual analysis
 
-The textial analysis is done in three main parts. 
+The textual analysis is done in three main parts. 
 
 First, we need to collect all the direct HTML link to the company 10-K files available on the SEC webpage database, EDGAR. (https://www.sec.gov/edgar/searchedgar/companysearch.html). 
 
