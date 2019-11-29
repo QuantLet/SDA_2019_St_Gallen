@@ -39,11 +39,11 @@ usdata = usdata.astype(float)
 
 The textual analysis is done in three main parts. 
 
-First, we need to collect all the direct HTML link to the company 10-K files available on the SEC webpage database, EDGAR. (https://www.sec.gov/edgar/searchedgar/companysearch.html). 
+First,all the direct HTML link to the company 10-K files available on the SEC webpage database, EDGAR were collected. (https://www.sec.gov/edgar/searchedgar/companysearch.html). 
 
-Second, we will execute some preprocessing technique using the bag-of-words approach that will enable us to keep only the raw text of the fillings ready to be analyzed. 
+Second, some preprocessing techniques using the bag-of-words approach were executed that will enabled keeping only the raw text of the fillings ready to be analyzed. 
 
-Third, we will compute the average length of the sentences but also compute the number of positive and negative words in each file based on two different libraries, one from Loughran and McDonald (2016) and one from Bing Liu, to compute a final polarity score. 
+Third, the average length of the sentences was computed but also the number of positive and negative words in each file based on two different libraries, one from Loughran and McDonald (2016) and one from Bing Liu, to compute a final polarity score. 
 
 ## Describing the data
 
@@ -147,9 +147,9 @@ The following machine learning algorithms were tested:
 - Logistic Regression (https://towardsdatascience.com/an-introduction-to-logistic-regression-8136ad65da2e)
 - Random Forest (https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
 - Adaptive Boosting (https://towardsdatascience.com/boosting-algorithm-adaboost-b6737a9ee60c)
-- Support Vector Machines (https://towardsdatascience.com/the-complete-guide-to-support-vector-machine-svm-f1a820d8af0b)
 - Naïve Bayes (https://towardsdatascience.com/naive-bayes-explained-9d2b96f4a9c0)
 - K-Nearest Neighbour (https://towardsdatascience.com/knn-k-nearest-neighbors-1-a4707b24bd1d)
+- Decision Tree (https://towardsdatascience.com/decision-tree-classification-de64fc4d5aac)
 
 ```
 #Define machine learning function with parameters
@@ -165,10 +165,6 @@ AdaBoost = Pipeline([
             ('sampling', RandomOverSampler()),
             ('classification', AdaBoostClassifier(random_state=0))])
 AdaBoost_para = {'classification__n_estimators':[20, 50, 100, 200, 400, 800]}
-SVM = Pipeline([
-            ('sampling', RandomOverSampler()),
-            ('classification', SVC(decision_function_shape='ovr', degree=3, gamma='auto'))]) 
-SVM_para = {'classification__C':[0.01, 0.1, 1, 10], 'classification__kernel':('linear', 'rbf')}
 NaivBay = Pipeline([
             ('sampling', RandomOverSampler()),
             ('classification', GaussianNB())])
@@ -177,16 +173,21 @@ Knn = Pipeline([
             ('sampling', RandomOverSampler()),
             ('classification', KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski'))])
 Knn_para = {'classification__n_neighbors': (10, 15, 25)}
-
+DecTree = Pipeline([
+            ('sampling', RandomOverSampler()),
+            ('classification', DecisionTreeClassifier())
+            ])
+DecTree_para = {}
 
 score={'AUC':'roc_auc', 
            'RECALL':'recall',
            'PRECISION':'precision',
            'F1':'f1’}
 
-clasifier_names = ["Logistic Regression", "Random Forest", "Adaptive Boosting", "Support Vector Machines", "Naive Bayes", "K Nearest Neighbours"]
-classifiers = [LogReg, RandF, AdaBoost, SVM, NaivBay, Knn]
-parameters = [LogReg_para, RandF_para, AdaBoost_para, SVM_para, NaivBay_para, Knn_para]
+clasifier_names = ["Logistic Regression", "Random Forest", "Adaptive Boosting", "Naive Bayes", "K-nearest neighbours", "Decision Tree"]
+classifiers = [LogReg, RandF, AdaBoost, NaivBay, Knn, DecTree]
+parameters = [LogReg_para, RandF_para, AdaBoost_para, NaivBay_para, Knn_para, DecTree_para]
+
  
 results = list()
  
@@ -200,10 +201,10 @@ for i in range(len(classifiers)):
 ```
 
 ## Train and export the final machine learning model
-The best performing algorithm determined by gridsearch will be trained on the complete training dataset and evaluated on the unused test dataset to get the final performance evaluation.
+The best performing algorithm determined by gridsearch was large random forest classifier. A random forest with 800 trees and a max depth of 20 had the largest F1 score on all data sets. It was trained on the complete training dataset and evaluated on the unused test dataset to get the final performance evaluation.
 ```
 #train model
-clf = AdaBoostClassifier(random_state=randomstate, n_estimators=800)
+clf = RandomForestClassifier(random_state=randomstate, n_estimators=800, max_depth=20)
 clf.fit(X_train, y_train)
 
 #test model
@@ -215,13 +216,12 @@ result["acc"] = accuracy_score(y_test, y_pred)
 result["prec"] = precision_score(y_test, y_pred)
 result["rec"] = recall_score(y_test, y_pred)
 result["f1"] = f1_score(y_test, y_pred)
-result["auc"] = auc(y_test, y_pred)
 
 #print scores
 for key in result.keys():
     print("{}: {}".format(key, result[key]))
 
 #save classifier
-filename = 'prediction_model.sav'
+filename = r'...\prediction_model.sav'
 pickle.dump(clf, open(filename, 'wb'))
 ```
