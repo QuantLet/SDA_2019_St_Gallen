@@ -95,7 +95,7 @@ X_all, topcols, topimportances = reduce_components(X_all, "X_all", y, nFeatures,
 ```
 
 ### Outlier detection
-Since there are a lot of outliers in the data, an Isolation Forest algorithm for implemented to identify anomalies. The percentage of outliers to be detected was  set to 10%. 
+Since there are a lot of outliers in the data, an Isolation Forest algorithm for implemented to identify anomalies. The percentage of outliers to be detected was  set to 10%.  (https://towardsdatascience.com/anomaly-detection-with-isolation-forest-visualization-23cd75c281e2)
 ```
 from sklearn.ensemble import IsolationForest
 to_model_columns=x_all.columns[3:46]
