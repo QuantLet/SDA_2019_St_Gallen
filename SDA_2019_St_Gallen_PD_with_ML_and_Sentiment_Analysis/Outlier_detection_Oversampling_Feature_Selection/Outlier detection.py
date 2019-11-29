@@ -7,6 +7,7 @@ Created on Thu Nov 21 16:54:51 2019
 Input: X_all_train_wo_OS.csv, y_train_wo_OS.csv
 Output: y_all_inliers_wo_os.csv, x_all_inliers_wo_os.csv
 Purpose: Detect outliers using Isolation Forest (the percentage of outliers was set to 10%). Save new cleaned datasets with inliers.
+https://towardsdatascience.com/anomaly-detection-with-isolation-forest-visualization-23cd75c281e2
 """
 
 import os
