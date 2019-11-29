@@ -21,10 +21,10 @@ from sklearn.metrics import accuracy_score, f1_score, auc, precision_score, reca
 
 
 #load the data
-X_train = pd.read_csv(r"\X_all_train_wo_OS.csv", low_memory=False, index_col = 0).iloc[:, 2:]
-y_train = pd.read_csv(r"\y_train_wo_OS.csv", low_memory=False, index_col = 0).squeeze()
-X_test = pd.read_csv(r"\X_all_test.csv", low_memory=False, index_col = 0).iloc[:, 2:]
-y_test = pd.read_csv(r"\y_test.csv", low_memory=False, index_col = 0).squeeze()
+X_train = pd.read_csv(r"...\X_all_train_RNOS.csv", low_memory=False, index_col = 0).iloc[:, 2:]
+y_train = pd.read_csv(r"...\y_train_RNOS.csv", low_memory=False, index_col = 0).squeeze()
+X_test = pd.read_csv(r"...\X_all_test.csv", low_memory=False, index_col = 0).iloc[:, 2:]
+y_test = pd.read_csv(r"...\y_test.csv", low_memory=False, index_col = 0).squeeze()
 
 
 #set a random state
@@ -50,6 +50,6 @@ for key in result.keys():
     print("{}: {}".format(key, result[key]))
 
 #save classifier
-filename = 'prediction_model.sav'
+filename = r'...\prediction_model.sav'
 pickle.dump(clf, open(filename, 'wb'))
 
