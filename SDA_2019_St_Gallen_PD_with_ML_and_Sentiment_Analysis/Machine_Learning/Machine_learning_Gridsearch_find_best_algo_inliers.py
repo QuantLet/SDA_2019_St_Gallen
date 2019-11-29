@@ -65,7 +65,7 @@ Knn = Pipeline([
             ])
 Knn_para = {'classification__n_neighbors': (10, 25)}
 DecTree = Pipeline([
-            ('sampling', SMOTE()),
+            ('sampling', RandomOverSampler()),
             ('classification', DecisionTreeClassifier())
             ])
 DecTree_para = {}
