@@ -28,7 +28,7 @@ y_test = pd.read_csv(r"...\y_test.csv", low_memory=False, index_col = 0).squeeze
 
 
 #set a random state
-randomstate = 24
+randomstate = 38
 
 #train model
 clf = RandomForestClassifier(random_state=randomstate, n_estimators=800, max_depth=20)
