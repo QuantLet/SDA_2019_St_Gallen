@@ -31,7 +31,7 @@ y_test = pd.read_csv(r"...\y_test.csv", low_memory=False, index_col = 0).squeeze
 randomstate = 24
 
 #train model
-clf = AdaBoostClassifier(random_state=randomstate, n_estimators=800)
+clf = RandomForestClassifier(random_state=randomstate, n_estimators=800, max_depth=20)
 clf.fit(X_train, y_train)
 
 #test model
