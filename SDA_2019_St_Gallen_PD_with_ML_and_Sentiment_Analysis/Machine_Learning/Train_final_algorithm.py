@@ -43,7 +43,6 @@ result["acc"] = accuracy_score(y_test, y_pred)
 result["prec"] = precision_score(y_test, y_pred)
 result["rec"] = recall_score(y_test, y_pred)
 result["f1"] = f1_score(y_test, y_pred)
-result["auc"] = auc(y_test, y_pred)
 
 #print scores
 for key in result.keys():
