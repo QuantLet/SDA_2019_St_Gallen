@@ -1,0 +1,27 @@
+Name of Quantlet: POI_NLP_NETWORK_ENRON
+
+Published in: 'SDA_2019_St_Gallen' 
+
+Description: 'The repository contains 3 parts : 1. Person of interests 2. Natural language process (LDA) 3. Network'  
+
+Keywords: 'random forest, decision tree, naive bayes, lda, nlp, network, ,enron, email, financial '
+
+Authors: 'Alvaro Morales, Vincent Porret, Manu Virgolin'
+
+Submitted:   '25 November 2019'
+
+Input: 'Database Enron '
+
+Output:  'POI - NLP - NETWORK
+
+Notes : 
+
+            - Persons Of Interest = Final_code.ipynb
+            
+            - Natural language Processing = Main_NLP.ipynb
+
+                      source of the database : https://www.kaggle.com/wcukierski/enron-email-dataset
+                      -> Download the file and name it "mails2.csv". The file was too huge to be integrated in GitHub.
+
+             - Network Visualization = Network.ipynb (in the .zip)
+
