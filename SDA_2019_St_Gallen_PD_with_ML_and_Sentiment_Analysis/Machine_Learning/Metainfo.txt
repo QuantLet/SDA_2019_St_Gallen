@@ -1,5 +1,7 @@
 Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Machine_Learning'
 
+Published in: 'SDA_2019_St_Gallen'
+
 Description: 'Implement machine learning algorithms for default prediction '
             
 Keywords: 'machine learning, logistic regression, random forest, naive bayes classifier, adaptive boosting, decision tree, k-nearest neighbor classifier'
