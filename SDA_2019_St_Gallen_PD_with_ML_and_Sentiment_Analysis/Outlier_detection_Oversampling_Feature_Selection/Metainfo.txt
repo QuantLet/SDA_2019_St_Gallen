@@ -1,5 +1,7 @@
 Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Outlier_detection_Oversampling_Feature_Selection'
 
+Published in: 'SDA_2019_St_Gallen'
+
 Description: 'Identify and remove outliers, perform oversampling, select the 44 most important features of the dataset'
             
 Keywords: 'outlier detection, isolation forest, oversampling, random naive oversampling, synthetic minority oversampling, adaptive synthetic'
