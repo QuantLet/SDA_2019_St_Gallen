@@ -3,8 +3,8 @@
 Created on Fri Nov  1 13:56:39 2019
 
 @author: Fabian Karst
-Input:  bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv (from Preprocessing_WIDS.py)  
-        WIDS Corporate Legal Bankruptcy data as .sas7bat
+Input:  bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv (from Preprocessing_WRDS.py)  
+        WRDS Corporate Legal Bankruptcy data as .sas7bat
 Output: lbl_data_processed.csv
 Purpose: Identify the companies which disappeared during the observation period (label: disap) and identify which of them went bankrupt by Chapter 7 or 11 (label: bnkrpt)
 """
@@ -14,7 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Set working directory
-os.chdir('D:\Programming\Python\SmartDataAnalytics\Project\Preprocessing_WIDS')
+os.chdir('D:\Programming\Python\SmartDataAnalytics\Project\Preprocessing_WRDS')
 
 #import wids data
 df_wids = [pd.read_csv("preprocesseddata//ratio//bl_data_processed.csv", low_memory=False, index_col = 0), pd.read_csv("preprocesseddata//ratio//cf_data_processed.csv", low_memory=False, index_col = 0), pd.read_csv("preprocesseddata//ratio//is_data_processed.csv", low_memory=False, index_col = 0)]

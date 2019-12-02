@@ -1,0 +1,13 @@
+Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Outlier_detection_Oversampling_Feature_Selection'
+
+Description: 'Identify and remove outliers, perform oversampling, select the 44 most important features of the dataset'
+            
+Keywords: 'outlier detection, isolation forest, oversampling, random naive oversampling, synthetic minority oversampling, adaptive synthetic'
+
+Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
+
+Submitted:   '25 November 2019'
+
+Input: 'bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv, lbl_data_processed.csv, filings_data_processed.csv, macro.csv, ratios.csv'
+
+Output:  'inliers dataset, different train datasets with various oversampling methods applied, the test dataset (as csv)'

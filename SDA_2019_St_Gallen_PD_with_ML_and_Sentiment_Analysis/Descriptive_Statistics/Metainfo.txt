@@ -1,0 +1,13 @@
+Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Descriptive_Statistics'
+
+Description: 'Create summary statistics for financial ratios and make visualizations for macroeconomic indicators, polarity scores and overview of defaults'
+            
+Keywords: 'summary statistics, boxplot, areachart, linegraph, macroeconomic indicators, polarity scores, financial ratios'
+
+Authors: 'Alexander Schade, Fabian Karst, Zhasmina Gyozalyan'
+
+Submitted:   '25 November 2019'
+
+Input: 'ratios.csv, macrodata_simple series.csv, filings_data_processed.csv, bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv, lbl_data_processed.csv'
+
+Output:  'sumstat_ratios.xlsx, macro.png, fdi.png, polarLM.png, polarB.png, ByYear_extd.png, ByState_extd.png, BySector_extd.png'

@@ -21,17 +21,17 @@ from sklearn.metrics import accuracy_score, f1_score, auc, precision_score, reca
 
 
 #load the data
-X_train = pd.read_csv(r"\X_all_train_wo_OS.csv", low_memory=False, index_col = 0).iloc[:, 2:]
-y_train = pd.read_csv(r"\y_train_wo_OS.csv", low_memory=False, index_col = 0).squeeze()
-X_test = pd.read_csv(r"\X_all_test.csv", low_memory=False, index_col = 0).iloc[:, 2:]
-y_test = pd.read_csv(r"\y_test.csv", low_memory=False, index_col = 0).squeeze()
+X_train = pd.read_csv(r"...\X_all_train_RNOS.csv", low_memory=False, index_col = 0).iloc[:, 2:]
+y_train = pd.read_csv(r"...\y_train_RNOS.csv", low_memory=False, index_col = 0).squeeze()
+X_test = pd.read_csv(r"...\X_all_test.csv", low_memory=False, index_col = 0).iloc[:, 2:]
+y_test = pd.read_csv(r"...\y_test.csv", low_memory=False, index_col = 0).squeeze()
 
 
 #set a random state
-randomstate = 24
+randomstate = 38
 
 #train model
-clf = AdaBoostClassifier(random_state=randomstate, n_estimators=800)
+clf = RandomForestClassifier(random_state=randomstate, n_estimators=800, max_depth=20)
 clf.fit(X_train, y_train)
 
 #test model
@@ -43,13 +43,12 @@ result["acc"] = accuracy_score(y_test, y_pred)
 result["prec"] = precision_score(y_test, y_pred)
 result["rec"] = recall_score(y_test, y_pred)
 result["f1"] = f1_score(y_test, y_pred)
-result["auc"] = auc(y_test, y_pred)
 
 #print scores
 for key in result.keys():
     print("{}: {}".format(key, result[key]))
 
 #save classifier
-filename = 'prediction_model.sav'
+filename = r'...\prediction_model.sav'
 pickle.dump(clf, open(filename, 'wb'))
 

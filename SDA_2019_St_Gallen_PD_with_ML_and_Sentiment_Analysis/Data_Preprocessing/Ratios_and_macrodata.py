@@ -3,6 +3,10 @@
 Created on Thu Oct 31 19:25:08 2019
 
 @author: Jasmine
+
+Input: bl_data_processed.csv, cf_data_processed.csv, is_data_processed.csv
+Output: ratios.csv, 20191114_macro_ind.csv, macrodata_simple series.csv 
+Purpose: Collect macroeconomic data from WB database, match it with comapany panel dataset so that all companies have same macroindicator for a given year, calculate financial ratios.
 """
 
 import pandas as pd 
