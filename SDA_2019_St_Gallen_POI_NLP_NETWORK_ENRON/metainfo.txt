@@ -1,4 +1,4 @@
-Name of Quantlet: POI_NLP_NETWORK_ENRON
+Name of Quantlet: SDA_2019_St_Gallen_POI_NLP_NETWORK_ENRON
 
 Published in: 'SDA_2019_St_Gallen' 
 
@@ -12,16 +12,11 @@ Submitted:   '25 November 2019'
 
 Input: 'Database Enron '
 
-Output:  'POI - NLP - NETWORK
+Output:  'POI - NLP - NETWORK'
 
 Notes : 
-
-            - Persons Of Interest = Final_code.ipynb
-            
-            - Natural language Processing = Main_NLP.ipynb
-
-                      source of the database : https://www.kaggle.com/wcukierski/enron-email-dataset
-                      -> Download the file and name it "mails2.csv". The file was too huge to be integrated in GitHub.
-
-             - Network Visualization = Network.ipynb (in the .zip)
-
+- 'Persons Of Interest = Final_code.ipynb'
+- 'Natural language Processing = Main_NLP.ipynb
+      source of the database : https://www.kaggle.com/wcukierski/enron-email-dataset
+                      -> Download the file and name it "mails2.csv". The file was too huge to be integrated in GitHub.'
+- 'Network Visualization = Network.ipynb (in the .zip)'
