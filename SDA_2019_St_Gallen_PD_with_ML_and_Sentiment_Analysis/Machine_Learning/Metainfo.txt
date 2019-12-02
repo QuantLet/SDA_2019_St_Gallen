@@ -1,4 +1,4 @@
-ciName of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Machine_Learning'
+Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Machine_Learning'
 
 Description: 'Implement machine learning algorithms for default prediction '
             
