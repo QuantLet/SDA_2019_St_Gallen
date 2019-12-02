@@ -1,5 +1,7 @@
 Name of Quantlet: 'SDA_2019_St_Gallen_PD_with_ML_and_Sentiment_Analysis_Textual_Analysis'
 
+Published in: 'SDA_2019_St_Gallen'
+
 Description: 'Collect textual data from companies annual reports, perform sentiment analysis, report polarity scores.'
             
 Keywords: 'textual analysis, sentiment extraction, polarity scores, stopwords, annual reports '
