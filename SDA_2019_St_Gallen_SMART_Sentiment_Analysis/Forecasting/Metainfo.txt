@@ -1,4 +1,4 @@
-Name of Quantlet: Forecasting
+Name of Quantlet: SDA_2019_St_Gallen_SMART_Sentiment_Analysis_Forecasting
 
 Published in: Smart Data Analytics / University of St. Gallen (HSG)
 
