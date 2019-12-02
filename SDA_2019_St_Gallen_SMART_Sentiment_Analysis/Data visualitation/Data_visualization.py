@@ -1,3 +1,10 @@
+'''
+This file visualizes the results obtained during the webscraping and forecasting part of the project.
+Methods used are wordcloads, a html table and scatterplots.
+
+Code was written by Oliver Kostorz during November 2019.
+'''
+
 #Import packages
 import pandas
 import numpy
@@ -7,6 +14,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from PIL import Image
 
+#Set working device
 try:
     wd = os.path.join(os.getcwd(), 'SDA-Oliver-Kostorz-SMART-Sentiment-Analysis-master')
 except:
@@ -15,7 +23,9 @@ except:
 data = pandas.read_csv(os.path.join(wd, 'data.csv'))
 evaluation = pandas.read_csv(os.path.join(wd, 'evaluation.csv'))
 
+
 ###Data visualisation
+
 #Dictionary
 data = data.sort_values(by = 'word', ascending = True)
 data.to_html(os.path.join(wd, 'Dictionary.html'), justify = 'left', index = False)

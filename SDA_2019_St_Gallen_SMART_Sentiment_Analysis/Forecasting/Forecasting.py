@@ -1,3 +1,13 @@
+'''
+This file scrapes the news website finanzen.net and gathers specified articles,
+analysis the words used and predicts the stock's return and volatility,
+based on the library  build under the webscraping part of the project.
+The actual return and volatility realizations are gathered through the Yahoo Finance API to back test the predictions made.
+
+Code was written by Oliver Kostorz during November 2019.
+'''
+
+
 #Import packages
 from bs4 import BeautifulSoup
 import requests
@@ -34,6 +44,8 @@ def roundtime(time):
         time += dt.timedelta(minutes = -1)
     return time
 
+
+
 #Loads relevant data from web scraping process
 try:
     wd = os.path.join(os.getcwd(), 'SDA-Oliver-Kostorz-SMART-Sentiment-Analysis-master')
@@ -42,10 +54,11 @@ except:
     
 data = pandas.read_csv(os.path.join(wd, 'data.csv'))
 
-#Forecasting
+
+###Forecasting
+
 #List containing relevant URLs for testing forecasts
 #News must be at least 5 days old!!!
-
 with open(os.path.join(wd, 'test_links.txt'), "rb") as fp:   # Unpickling
     test_urls = pickle.load(fp)
 
@@ -108,6 +121,7 @@ for link in test_urls:
         var_till_t = (numpy.var((return_t.loc[t_start : (rounded_time).strftime('%Y-%m-%d %H:%M:%S')])["Open"])) # variance until news
         var_after_t = (numpy.var((return_t.loc[(rounded_time).strftime('%Y-%m-%d %H:%M:%S') : t_end])["Open"])) # variance after news
         volatility_24 = math.sqrt(var_after_t)/math.sqrt(var_till_t)
+        
         #Predict return and volatility by words in news article
         return_prediction = 0
         volatility_prediction = 0
@@ -119,6 +133,7 @@ for link in test_urls:
                 counter = counter + 1
             else:
                 pass
+            
         #Save result in table
         evaluation = evaluation.append({'stock' : symbol, 'date' : rounded_time,
                                         'return prediction' : return_prediction, 'return realization' : return_24,
