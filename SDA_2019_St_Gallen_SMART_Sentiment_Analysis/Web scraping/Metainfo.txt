@@ -1,4 +1,4 @@
-Name of Quantlet: Web_scraping
+Name of Quantlet: SDA_2019_St_Gallen_SMART_Sentiment_Analysis_Web_scraping
 
 Published in: Smart Data Analytics / University of St. Gallen (HSG)
 
